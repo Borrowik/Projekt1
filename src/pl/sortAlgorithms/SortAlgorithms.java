@@ -31,7 +31,7 @@ public class SortAlgorithms {
 		}
 		printArray(DescTable);
 
-		// int i, liczba;
+		int i;
 		//
 		// System.out.println("Ile liczb chesz posortowac.");
 		// ile_liczb = Console.readInt("?");
