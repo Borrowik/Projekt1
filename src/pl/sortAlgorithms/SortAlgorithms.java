@@ -6,10 +6,6 @@ import java.util.Random;
 public class SortAlgorithms {
 	public static void main(String[] args) {
 
-		// LinkedList<Integer> lista = new LinkedList<Integer>(); lista.add(12);
-		// lista.add(3); System.out.println("Lista zawiera " + lista.get(0));
-		// System.out.println("Lista zawiera " + lista.get(1));
-
 		final int ArraySize = 100;
 		final int RandomUpRange = 100;
 
