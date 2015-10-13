@@ -1,6 +1,7 @@
 package pl.sortAlgorithms;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Random;
 
 public class SortAlgorithms {
@@ -13,36 +14,27 @@ public class SortAlgorithms {
 		final int ArraySize = 100;
 		final int RandomUpRange = 100;
 
-		int[] RandomTable = new int[ArraySize]; // lista niepouk³adana
+		int[] RandomTable = new int[ArraySize]; // tablica niepouk³adana
 		Arrays.fill(RandomTable, -1);
 		randomTable(RandomTable, RandomUpRange);
-		printArray(RandomTable);
+		// printArray(RandomTable);
 
-		int[] AscTable = new int[ArraySize]; // lista w kolejnoœæi rosn¹cej
+		int[] AscTable = new int[ArraySize]; // tablica w kolejnoœæi rosn¹cej
 		AscTable = Arrays.copyOf(RandomTable, ArraySize);
 		Arrays.sort(AscTable);
-		printArray(AscTable);
+		// printArray(AscTable);
 
-		int[] DescTable = new int[ArraySize]; // lista w kolejnoœæi malej¹cej
+		int[] DescTable = new int[ArraySize]; // tablica w kolejnoœæi malej¹cej
 		int[] TempTable = Arrays.copyOf(RandomTable, ArraySize);
 		Arrays.sort(TempTable);
 		for (int i = 0; i < DescTable.length; i++) {
 			DescTable[i] = TempTable[TempTable.length - 1 - i];
 		}
-		printArray(DescTable);
+		// printArray(DescTable);
 
-		int i;
+		// int i;
 		//
-		// System.out.println("Ile liczb chesz posortowac.");
-		// ile_liczb = Console.readInt("?");
-		// tablica = new int[ile_liczb];
-		// for (i = 0; i < ile_liczb; i++) {
-		// tablica[i] = Console.readInt("Wprowadz liczbe #" + (i + 1));
-		// }
-		//
-		// System.out.println("Tablica przed posortowaniem:");
-		// for (i = 0; i < ile_liczb; i++)
-		// System.out.println(tablica[i]);
+		System.out.println("Dziœ jest :" + new Date());
 		// quicksort(tablica, 0, ile_liczb - 1);
 		// System.out.println("Tablica po posortowaniu:");
 		// for (i = 0; i < ile_liczb; i++)
