@@ -1,22 +1,22 @@
 package pl.sortAlgorithms;
 
+import java.text.DateFormatSymbols;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Random;
 
 public class SortAlgorithms {
 	public static void main(String[] args) {
 
-		// LinkedList<Integer> lista = new LinkedList<Integer>(); lista.add(12);
-		// lista.add(3); System.out.println("Lista zawiera " + lista.get(0));
-		// System.out.println("Lista zawiera " + lista.get(1));
-
-		final int ArraySize = 100;
-		final int RandomUpRange = 100;
+		final int ArraySize = 1000;
+		final int RandomTopRange = 1000;
 
 		int[] RandomTable = new int[ArraySize]; // tablica niepouk³adana
 		Arrays.fill(RandomTable, -1);
-		randomTable(RandomTable, RandomUpRange);
+		randomTable(RandomTable, RandomTopRange);
 		// printArray(RandomTable);
 
 		int[] AscTable = new int[ArraySize]; // tablica w kolejnoœæi rosn¹cej
@@ -32,19 +32,39 @@ public class SortAlgorithms {
 		}
 		// printArray(DescTable);
 
-		// int i;
-		//
-		System.out.println("Dziœ jest :" + new Date());
-		// quicksort(tablica, 0, ile_liczb - 1);
-		// System.out.println("Tablica po posortowaniu:");
-		// for (i = 0; i < ile_liczb; i++)
-		// System.out.println(tablica[i]);
+		System.out.println("Witam w programie porównuj¹cym czasy sortowañ.");
+
+		printNowDateNHour();
+
+		List<StopWatch> Timers = new ArrayList<StopWatch>();
+		Timers.add(new StopWatch());
+		Timers.get(0).start();
+
+		Timers.get(0).stop();
+		System.out.println("Value:" + Timers.get(0).getElapsedTime());
+
 	}
 
-	private static void randomTable(int[] Table, int up) {
+	private static void printNowDateNHour() {
+		GregorianCalendar calendar = new GregorianCalendar();
+		int day = calendar.get(Calendar.DAY_OF_MONTH);
+		int weekday = calendar.get(Calendar.DAY_OF_WEEK);
+		int month = calendar.get(Calendar.MONTH);
+		int year = calendar.get(Calendar.YEAR);
+		int hour = calendar.get(Calendar.HOUR_OF_DAY);
+		int minute = calendar.get(Calendar.MINUTE);
+		int second = calendar.get(Calendar.SECOND);
+		String[] weekdayNames = new DateFormatSymbols().getShortWeekdays();
+		String[] monthNames = new DateFormatSymbols().getMonths();
+
+		System.out.printf("Dziœ: %s %d %s %d\n", weekdayNames[weekday], day, monthNames[month], year);
+		System.out.println("Godzina " + hour + ":" + minute + ":" + second);
+	}
+
+	private static void randomTable(int[] Table, int TopRange) {
 		Random gen = new Random();
 		for (int i = 0; i < Table.length; i++) {
-			Table[i] = gen.nextInt(up);
+			Table[i] = gen.nextInt(TopRange);
 		}
 	}
 
