@@ -6,43 +6,51 @@ import java.util.Random;
 public class SortAlgorithms {
 	public static void main(String[] args) {
 
-		final int ArraySize = 100;
-		final int RandomUpRange = 100;
+		final int ArraySize = 10000;
+		final int RandomUpRange = 1000;
 
-		int[] RandomTable = new int[ArraySize]; // lista niepouk³adana
+		int[] RandomTable = new int[ArraySize]; // Tabela niepouk³adana
 		Arrays.fill(RandomTable, -1);
 		randomTable(RandomTable, RandomUpRange);
-		printArray(RandomTable);
+		// printArray(RandomTable);
 
-		int[] AscTable = new int[ArraySize]; // lista w kolejnoœæi rosn¹cej
+		int[] AscTable = new int[ArraySize]; // Tabela w kolejnoœæi rosn¹cej
 		AscTable = Arrays.copyOf(RandomTable, ArraySize);
 		Arrays.sort(AscTable);
-		printArray(AscTable);
+		// printArray(AscTable);
 
-		int[] DescTable = new int[ArraySize]; // lista w kolejnoœæi malej¹cej
+		int[] DescTable = new int[ArraySize]; // Tabela w kolejnoœæi malej¹cej
 		int[] TempTable = Arrays.copyOf(RandomTable, ArraySize);
 		Arrays.sort(TempTable);
 		for (int i = 0; i < DescTable.length; i++) {
 			DescTable[i] = TempTable[TempTable.length - 1 - i];
 		}
-		printArray(DescTable);
+		// printArray(DescTable);
 
-		int i;
-		//
-		// System.out.println("Ile liczb chesz posortowac.");
-		// ile_liczb = Console.readInt("?");
-		// tablica = new int[ile_liczb];
-		// for (i = 0; i < ile_liczb; i++) {
-		// tablica[i] = Console.readInt("Wprowadz liczbe #" + (i + 1));
-		// }
-		//
-		// System.out.println("Tablica przed posortowaniem:");
-		// for (i = 0; i < ile_liczb; i++)
-		// System.out.println(tablica[i]);
-		// quicksort(tablica, 0, ile_liczb - 1);
-		// System.out.println("Tablica po posortowaniu:");
-		// for (i = 0; i < ile_liczb; i++)
-		// System.out.println(tablica[i]);
+		// int [] TableAfterSort = new int[ArraySize];
+
+		QuickSortAlgorithm.quickSort(Arrays.copyOf(RandomTable, RandomTable.length));
+
+		QuickSortAlgorithm.quickSort(Arrays.copyOf(AscTable, AscTable.length));
+
+		QuickSortAlgorithm.quickSort(Arrays.copyOf(DescTable, DescTable.length));
+
+		BubbleSortAlgorithm.BubbleSort(Arrays.copyOf(RandomTable, RandomTable.length));
+
+		BubbleSortAlgorithm.BubbleSort(Arrays.copyOf(AscTable, AscTable.length));
+
+		BubbleSortAlgorithm.BubbleSort(Arrays.copyOf(DescTable, DescTable.length));
+
+		MergeSortAlgorithm ObjectMergeSort = new MergeSortAlgorithm();
+
+		ObjectMergeSort.MergeSort(Arrays.copyOf(RandomTable, RandomTable.length));
+
+		ObjectMergeSort.MergeSort(Arrays.copyOf(AscTable, AscTable.length));
+
+		ObjectMergeSort.MergeSort(Arrays.copyOf(DescTable, DescTable.length));
+
+		// printArray(TableAfterSort);
+
 	}
 
 	private static void randomTable(int[] Table, int up) {
