@@ -39,6 +39,10 @@ public class SortAlgorithms {
 		List<StopWatch> Timers = new ArrayList<StopWatch>();
 		Timers.add(new StopWatch());
 		Timers.get(0).start();
+		long temp=0;
+		for(int i =0; i<100000;i++){
+			temp=temp+i;
+		}
 
 		Timers.get(0).stop();
 		System.out.println("Value:" + Timers.get(0).getElapsedTime());
