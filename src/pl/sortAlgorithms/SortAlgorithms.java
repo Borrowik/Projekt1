@@ -10,7 +10,7 @@ public class SortAlgorithms {
 		// lista.add(3); System.out.println("Lista zawiera " + lista.get(0));
 		// System.out.println("Lista zawiera " + lista.get(1));
 
-		final int ArraySize = 100;
+		final int ArraySize = 10;
 		final int RandomUpRange = 100;
 
 		int[] RandomTable = new int[ArraySize]; // lista niepouk³adana
