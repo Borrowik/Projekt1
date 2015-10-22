@@ -49,25 +49,6 @@ public class SortAlgorithms {
 		Timers.get(0).stop();
 		System.out.println("Value:" + Timers.get(0).getElapsedTime());
 
-	}
-
-	private static void printNowDateNHour() {
-		GregorianCalendar calendar = new GregorianCalendar();
-		int day = calendar.get(Calendar.DAY_OF_MONTH);
-		int weekday = calendar.get(Calendar.DAY_OF_WEEK);
-		int month = calendar.get(Calendar.MONTH);
-		int year = calendar.get(Calendar.YEAR);
-		int hour = calendar.get(Calendar.HOUR_OF_DAY);
-		int minute = calendar.get(Calendar.MINUTE);
-		int second = calendar.get(Calendar.SECOND);
-		String[] weekdayNames = new DateFormatSymbols().getShortWeekdays();
-		String[] monthNames = new DateFormatSymbols().getMonths();
-
-		System.out.printf("Dziœ: %s %d %s %d\n", weekdayNames[weekday], day, monthNames[month], year);
-		System.out.println("Godzina " + hour + ":" + minute + ":" + second);
-
-		// int [] TableAfterSort = new int[ArraySize];
-
 		QuickSortAlgorithm.quickSort(Arrays.copyOf(RandomTable, RandomTable.length));
 
 		QuickSortAlgorithm.quickSort(Arrays.copyOf(AscTable, AscTable.length));
@@ -89,6 +70,25 @@ public class SortAlgorithms {
 		ObjectMergeSort.MergeSort(Arrays.copyOf(DescTable, DescTable.length));
 
 		// printArray(TableAfterSort);
+
+	}
+
+	private static void printNowDateNHour() {
+		GregorianCalendar calendar = new GregorianCalendar();
+		int day = calendar.get(Calendar.DAY_OF_MONTH);
+		int weekday = calendar.get(Calendar.DAY_OF_WEEK);
+		int month = calendar.get(Calendar.MONTH);
+		int year = calendar.get(Calendar.YEAR);
+		int hour = calendar.get(Calendar.HOUR_OF_DAY);
+		int minute = calendar.get(Calendar.MINUTE);
+		int second = calendar.get(Calendar.SECOND);
+		String[] weekdayNames = new DateFormatSymbols().getShortWeekdays();
+		String[] monthNames = new DateFormatSymbols().getMonths();
+
+		System.out.printf("Dziœ: %s %d %s %d\n", weekdayNames[weekday], day, monthNames[month], year);
+		System.out.println("Godzina " + hour + ":" + minute + ":" + second);
+
+		// int [] TableAfterSort = new int[ArraySize];
 
 	}
 
