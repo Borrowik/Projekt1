@@ -20,11 +20,13 @@ public class SortAlgorithms {
 		// printArray(RandomTable);
 
 		int[] AscTable = new int[ArraySize]; // tablica w kolejnoœæi rosn¹cej
+
 		AscTable = Arrays.copyOf(RandomTable, ArraySize);
 		Arrays.sort(AscTable);
 		// printArray(AscTable);
 
 		int[] DescTable = new int[ArraySize]; // tablica w kolejnoœæi malej¹cej
+
 		int[] TempTable = Arrays.copyOf(RandomTable, ArraySize);
 		Arrays.sort(TempTable);
 		for (int i = 0; i < DescTable.length; i++) {
@@ -39,9 +41,9 @@ public class SortAlgorithms {
 		List<StopWatch> Timers = new ArrayList<StopWatch>();
 		Timers.add(new StopWatch());
 		Timers.get(0).start();
-		long temp=0;
-		for(int i =0; i<100000;i++){
-			temp=temp+i;
+		long temp = 0;
+		for (int i = 0; i < 100000; i++) {
+			temp = temp + i;
 		}
 
 		Timers.get(0).stop();
@@ -63,6 +65,31 @@ public class SortAlgorithms {
 
 		System.out.printf("Dziœ: %s %d %s %d\n", weekdayNames[weekday], day, monthNames[month], year);
 		System.out.println("Godzina " + hour + ":" + minute + ":" + second);
+
+		// int [] TableAfterSort = new int[ArraySize];
+
+		QuickSortAlgorithm.quickSort(Arrays.copyOf(RandomTable, RandomTable.length));
+
+		QuickSortAlgorithm.quickSort(Arrays.copyOf(AscTable, AscTable.length));
+
+		QuickSortAlgorithm.quickSort(Arrays.copyOf(DescTable, DescTable.length));
+
+		BubbleSortAlgorithm.BubbleSort(Arrays.copyOf(RandomTable, RandomTable.length));
+
+		BubbleSortAlgorithm.BubbleSort(Arrays.copyOf(AscTable, AscTable.length));
+
+		BubbleSortAlgorithm.BubbleSort(Arrays.copyOf(DescTable, DescTable.length));
+
+		MergeSortAlgorithm ObjectMergeSort = new MergeSortAlgorithm();
+
+		ObjectMergeSort.MergeSort(Arrays.copyOf(RandomTable, RandomTable.length));
+
+		ObjectMergeSort.MergeSort(Arrays.copyOf(AscTable, AscTable.length));
+
+		ObjectMergeSort.MergeSort(Arrays.copyOf(DescTable, DescTable.length));
+
+		// printArray(TableAfterSort);
+
 	}
 
 	private static void randomTable(int[] Table, int TopRange) {
