@@ -1,33 +1,41 @@
 package pl.sortAlgorithms;
 
 public class QuickSortAlgorithm {
-	private static int tablica[];
-	private static int ile_liczb;
+	private static int Table[];
+	private static int TableSize;
 
-	private static void quicksort(int tablica[], int x, int y) {
+	public static int[] quickSort(int TableIn[]) {
+		Table = TableIn;
+		TableSize = TableIn.length;
+		quickSort(Table, 0, TableSize - 1);
+		return Table;
+
+	}
+
+	private static void quickSort(int Table[], int x, int y) {
 
 		int i, j, v, temp;
 
 		i = x;
 		j = y;
-		v = tablica[(x + y) / 2];
+		v = Table[(x + y) / 2];
 		do {
-			while (tablica[i] < v)
+			while (Table[i] < v)
 				i++;
-			while (v < tablica[j])
+			while (v < Table[j])
 				j--;
 			if (i <= j) {
-				temp = tablica[i];
-				tablica[i] = tablica[j];
-				tablica[j] = temp;
+				temp = Table[i];
+				Table[i] = Table[j];
+				Table[j] = temp;
 				i++;
 				j--;
 			}
 		} while (i <= j);
 		if (x < j)
-			quicksort(tablica, x, j);
+			quickSort(Table, x, j);
 		if (i < y)
-			quicksort(tablica, i, y);
+			quickSort(Table, i, y);
 	}
 
 }
