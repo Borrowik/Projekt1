@@ -11,7 +11,7 @@ import java.util.Random;
 public class SortAlgorithms {
 	public static void main(String[] args) {
 
-		final int ArraySize = 1000;
+		final int ArraySize = 100000;
 		final int RandomTopRange = 1000;
 
 		int[] RandomTable = new int[ArraySize]; // tablica niepouk³adana
@@ -49,28 +49,94 @@ public class SortAlgorithms {
 		Timers.get(0).stop();
 		System.out.println("Value:" + Timers.get(0).getElapsedTime());
 
-		QuickSortAlgorithm.quickSort(Arrays.copyOf(RandomTable, RandomTable.length));
+		ArrayList<String> results = new ArrayList<>();
 
-		QuickSortAlgorithm.quickSort(Arrays.copyOf(AscTable, AscTable.length));
+		results.add(quickSortRank(RandomTable, AscTable, DescTable));
 
-		QuickSortAlgorithm.quickSort(Arrays.copyOf(DescTable, DescTable.length));
+		results.add(bubbleSortRank(RandomTable, AscTable, DescTable));
 
-		BubbleSortAlgorithm.BubbleSort(Arrays.copyOf(RandomTable, RandomTable.length));
+		results.add(margeSortRank(RandomTable, AscTable, DescTable));
 
-		BubbleSortAlgorithm.BubbleSort(Arrays.copyOf(AscTable, AscTable.length));
+		printResults(results);
 
-		BubbleSortAlgorithm.BubbleSort(Arrays.copyOf(DescTable, DescTable.length));
+	}
+
+	private static void printResults(ArrayList<String> results) {
+		for (String st : results) {
+			System.out.println(st);
+		}
+	}
+
+	private static String margeSortRank(int[] RandomTable, int[] AscTable, int[] DescTable) {
 
 		MergeSortAlgorithm ObjectMergeSort = new MergeSortAlgorithm();
+		StringBuilder result = new StringBuilder("Merge sort timers results :");
+		StopWatch Timer = new StopWatch();
 
+		Timer.start();
 		ObjectMergeSort.MergeSort(Arrays.copyOf(RandomTable, RandomTable.length));
+		Timer.stop();
+		result = result.append(" Random: " + Timer.getElapsedTime());
 
+		Timer.start();
 		ObjectMergeSort.MergeSort(Arrays.copyOf(AscTable, AscTable.length));
+		Timer.stop();
+		result = result.append(" Asc: " + Timer.getElapsedTime());
 
+		Timer.start();
 		ObjectMergeSort.MergeSort(Arrays.copyOf(DescTable, DescTable.length));
+		Timer.stop();
+		result = result.append(" Desc: " + Timer.getElapsedTime());
 
-		// printArray(TableAfterSort);
+		return result.toString();
 
+	}
+
+	private static String bubbleSortRank(int[] RandomTable, int[] AscTable, int[] DescTable) {
+
+		StringBuilder result = new StringBuilder("Bubble sort timers results :");
+		StopWatch Timer = new StopWatch();
+
+		Timer.start();
+		BubbleSortAlgorithm.BubbleSort(Arrays.copyOf(RandomTable, RandomTable.length));
+		Timer.stop();
+		result = result.append(" Random: " + Timer.getElapsedTime());
+
+		Timer.start();
+		BubbleSortAlgorithm.BubbleSort(Arrays.copyOf(AscTable, AscTable.length));
+		Timer.stop();
+		result = result.append(" Asc: " + Timer.getElapsedTime());
+
+		Timer.start();
+		BubbleSortAlgorithm.BubbleSort(Arrays.copyOf(DescTable, DescTable.length));
+		Timer.stop();
+		result = result.append(" Desc: " + Timer.getElapsedTime());
+
+		return result.toString();
+
+	}
+
+	private static String quickSortRank(int[] RandomTable, int[] AscTable, int[] DescTable) {
+
+		StringBuilder result = new StringBuilder("Quick sort timers results :");
+		StopWatch Timer = new StopWatch();
+
+		Timer.start();
+		QuickSortAlgorithm.quickSort(Arrays.copyOf(RandomTable, RandomTable.length));
+		Timer.stop();
+		result = result.append(" Random: " + Timer.getElapsedTime());
+
+		Timer.start();
+		QuickSortAlgorithm.quickSort(Arrays.copyOf(AscTable, AscTable.length));
+		Timer.stop();
+		result = result.append(" Asc: " + Timer.getElapsedTime());
+
+		Timer.start();
+		QuickSortAlgorithm.quickSort(Arrays.copyOf(DescTable, DescTable.length));
+		Timer.stop();
+		result = result.append(" Desc: " + Timer.getElapsedTime());
+
+		return result.toString();
 	}
 
 	private static void printNowDateNHour() {
