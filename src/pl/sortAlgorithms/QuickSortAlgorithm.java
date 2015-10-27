@@ -5,9 +5,12 @@ public class QuickSortAlgorithm {
 	private static int TableSize;
 
 	public static int[] quickSort(int TableIn[]) {
+
 		Table = TableIn;
-		TableSize = TableIn.length;
-		quickSort(Table, 0, TableSize - 1);
+		if (TableIn.length > 1) {
+			TableSize = TableIn.length;
+			quickSort(Table, 0, TableSize - 1);
+		}
 		return Table;
 
 	}

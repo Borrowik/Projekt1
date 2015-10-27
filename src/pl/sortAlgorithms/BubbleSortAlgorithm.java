@@ -1,5 +1,7 @@
 package pl.sortAlgorithms;
 
+import java.util.Arrays;
+
 public class BubbleSortAlgorithm {
 	public static int[] BubbleSort(int[] Table) {
 		int j;
@@ -18,6 +20,12 @@ public class BubbleSortAlgorithm {
 				}
 			}
 		}
+
+		int[] TempTable = Arrays.copyOf(Table, Table.length);
+		for (int i = 0; i < Table.length; i++) {
+			Table[i] = TempTable[Table.length - 1 - i];
+		}
+
 		return Table;
 	}
 }

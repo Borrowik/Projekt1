@@ -20,8 +20,8 @@ public class StopWatch {
 
 	public StopWatch() {
 		super();
-		this.startTime = -1;
-		this.stopTime = -1;
+		this.startTime = 0;
+		this.stopTime = 0;
 		this.running = false;
 		this.innitalized = false;
 	}
@@ -35,6 +35,12 @@ public class StopWatch {
 	public void stop() {
 		this.stopTime = System.currentTimeMillis();
 		this.running = false;
+	}
+
+	public boolean isRunning() {
+
+		return this.running;
+
 	}
 
 	// elaspsed time in milliseconds
